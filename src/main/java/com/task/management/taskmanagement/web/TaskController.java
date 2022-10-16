@@ -14,17 +14,17 @@ public class TaskController {
      @Autowired
 	private TaskService service;
 
-	@RequestMapping(value = "api/tasks", produces = "application/json", method = RequestMethod.GET)
+	@RequestMapping(value = "tasks", produces = "application/json", method = RequestMethod.GET)
 	public List<Task> listTasks() {
 		return service.getAllTask();
 	}
 
-	@RequestMapping(value = "api/tasks", produces = "application/json", method = RequestMethod.POST)
+	@RequestMapping(value = "task/new", produces = "application/json", method = RequestMethod.POST)
 	public Task createTask(@RequestBody Task task) {
 		return service.createTask(task);
 	}
 
-	@RequestMapping(value = "api/tasks/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "task/delete/{id}", method = RequestMethod.DELETE)
 	public void deleteTask(@PathVariable("id") String id) {
 		service.deleteTask(id);
 	}

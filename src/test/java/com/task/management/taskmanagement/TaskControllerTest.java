@@ -30,8 +30,8 @@ public class TaskControllerTest {
 
 	@Test
 	public void returnAllTasks() {
-		Task firstTask = Task.builder().subject("first").content("content").build();
-		Task secondTask = Task.builder().subject("second").content("content").build();
+		Task firstTask = Task.builder().text("first").priority("content").build();
+		Task secondTask = Task.builder().text("second").priority("content").build();
 		List<Task> tasks = asList(firstTask, secondTask);
 		given(repo.findAll()).willReturn(tasks);
 
@@ -49,7 +49,7 @@ public class TaskControllerTest {
 
 	@Test
 	public void createTask() {
-		Task task = Task.builder().subject("a task").content("sample content").build();
+		Task task = Task.builder().text("a task").priority("sample content").build();
 		given(repo.insert(eq(task))).willReturn(task);
 
 		//Task result = controller.createTask("a task");

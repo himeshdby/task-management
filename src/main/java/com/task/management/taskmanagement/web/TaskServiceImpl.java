@@ -4,18 +4,23 @@ import com.task.management.taskmanagement.model.Task;
 import com.task.management.taskmanagement.repo.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+
 @Transactional
+@Component
 public class TaskServiceImpl implements  TaskService{
 
-    @Autowired
-    TaskRepository repository;
+
+    private TaskRepository repository;
+
+
+
 
     @Override
     public List<Task> getAllTask() {
@@ -31,5 +36,9 @@ public class TaskServiceImpl implements  TaskService{
     public void deleteTask(String id) {
         repository.delete(id);
 
+    }
+    @Bean
+    public TaskRepository getRepository() {
+        return repository;
     }
 }

@@ -1,3 +1,0 @@
---compilers js:babel-register
---recursive test/unit/browser.js test/unit/**/*test.js
---reporter spec

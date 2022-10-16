@@ -25,24 +25,24 @@ public class Task {
 	@Indexed(unique = true)
 	@Getter
 	@Setter
-	private String subject;
+	private String text;
 
 	@Getter
 	@Setter
-	private String content;
+	private String priority;
 
 
 	public Task() {
 	}
 
-	public Task(@NonNull String subject, @NonNull String content) {
-		this.content = content;
-		this.subject = subject;
+	public Task(@NonNull String text, @NonNull String content) {
+		this.text = text;
+		this.priority = priority;
 	}
 
-	public Task(String id, @NonNull String subject, @NonNull String content) {
+	public Task(String id, @NonNull String text, @NonNull String priority) {
 		this.id = id;
-		this.content = content;
-		this.subject = subject;
+		this.priority = priority;
+		this.text = text;
 	}
 }
